@@ -7,12 +7,12 @@ from queue import Queue
 from PIL import Image, ImageSequence
 
 # Convert GIF to a list of frames
-img = Image.open("/Users/christams/Desktop/CSES_Code/CSES_Green_Shark.png")
+img = Image.open("CSES_Green_Shark.png")
 frames = [cv2.cvtColor(np.array(frame), cv2.COLOR_RGBA2BGRA) for frame in ImageSequence.Iterator(img)]
 
 def main():
     cap = cv2.VideoCapture(0)
-    video = cv2.VideoCapture('/Users/christams/Desktop/CSES_Code/Underwater World Background Video Animation _  Motion Background Loop _ No Copyright.mp4')
+    video = cv2.VideoCapture('Underwater World Background Video Animation _  Motion Background Loop _ No Copyright.mp4')
 
     if not cap.isOpened():
         print("Could not open video device.")
