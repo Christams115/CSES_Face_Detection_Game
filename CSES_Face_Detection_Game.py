@@ -65,6 +65,7 @@ def main():
 
         if show_live_feed:
             live_feed = cv2.VideoCapture(0)
+            
             input_thread = threading.Thread(target=get_input, args=(input_queue,))
             input_thread.daemon = True
             input_thread.start()
@@ -72,7 +73,7 @@ def main():
             while show_live_feed:
                 # Capture frame-by-frame
                 ret, frame = live_feed.read()
-
+                frame = cv2.flip(frame, 1)
                 # Display the resulting frame
                 cv2.imshow('Live Feed', frame)
 
